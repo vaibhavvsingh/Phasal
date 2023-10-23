@@ -5,7 +5,6 @@ import BottomBar from "../components/BottomBar";
 export default class Home extends Component {
   render() {
     return (
-      <>
         <View style={styles.container}>
           <Text style={styles.title}>Home Page</Text>
           <ScrollView style={{ gap: 10 }}>
@@ -25,8 +24,6 @@ export default class Home extends Component {
             </View>
           </ScrollView>
         </View>
-        <BottomBar />
-      </>
     );
   }
 }
