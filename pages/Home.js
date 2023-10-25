@@ -1,31 +1,29 @@
 import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
-import React, { Component } from "react";
-import BottomBar from "../components/BottomBar";
+import React from "react";
 
-export default class Home extends Component {
-  render() {
-    return (
-        <View style={styles.container}>
-          <Text style={styles.title}>Home Page</Text>
-          <ScrollView style={{ gap: 10 }}>
-            <View style={styles.card}>
-              <View style={styles.thumbnail}>
-                <Text style={styles.text}>Scanner</Text>
-                <Image source={require("../assets/mantis.png")} />
-              </View>
-              <Text style={[styles.text, { padding: 15 }]}>Details</Text>
+export default function Home () {
+  
+  return (
+      <View style={styles.container}>
+        <Text style={styles.title}>Home Page</Text>
+        <ScrollView style={{ gap: 10 }}>
+          <View style={styles.card}>
+            <View style={styles.thumbnail}>
+              <Text style={styles.text}>Scanner</Text>
+              <Image source={require("../assets/mantis.png")} />
             </View>
-            <View style={styles.card}>
-              <View style={styles.thumbnail}>
-                <Text style={styles.text}>Report</Text>
-                <Image source={require("../assets/mantis.png")} />
-              </View>
-              <Text style={[styles.text, { padding: 15 }]}>Details</Text>
+            <Text style={[styles.text, { padding: 15 }]}>Details</Text>
+          </View>
+          <View style={styles.card}>
+            <View style={styles.thumbnail}>
+              <Text style={styles.text}>Report</Text>
+              <Image source={require("../assets/mantis.png")} />
             </View>
-          </ScrollView>
-        </View>
-    );
-  }
+            <Text style={[styles.text, { padding: 15 }]}>Details</Text>
+          </View>
+        </ScrollView>
+      </View>
+  );
 }
 
 const styles = StyleSheet.create({

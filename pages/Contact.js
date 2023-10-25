@@ -1,16 +1,14 @@
 import { Image, StyleSheet, Text, View } from "react-native";
-import React, { Component } from "react";
+import React from "react";
 
-export default class Contact extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Image style={styles.backgroundImage} source={require('../assets/contact.png')} />
-        <Text style={[styles.text, styles.button]}>Contact Us</Text>
-        <Text style={styles.text}>Details...</Text>
-      </View>
-    );
-  }
+export default function Contact () {
+  return (
+    <View style={styles.container}>
+      <Image style={styles.backgroundImage} source={require('../assets/contact.png')} />
+      <Text style={[styles.text, styles.button]}>Contact Us</Text>
+      <Text style={styles.text}>Details...</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

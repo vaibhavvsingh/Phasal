@@ -6,9 +6,12 @@ import {
   TextInput,
   Pressable,
 } from "react-native";
-import React from "react";
+import React, {useState} from "react";
 
 const SignIn = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
   return (
     <View style={styles.container}>
       <Image source={require("../assets/signup.png")} style={styles.image} />
@@ -16,11 +19,11 @@ const SignIn = () => {
         <Text style={styles.title}>Sign In</Text>
         <View>
           <Text style={styles.text}>Enter Email</Text>
-          <TextInput style={styles.input} />
+          <TextInput style={styles.input} value={email} onChangeText={setEmail} />
         </View>
         <View>
           <Text style={styles.text}>Enter Password</Text>
-          <TextInput style={styles.input} secureTextEntry={true} />
+          <TextInput style={styles.input} secureTextEntry={true} value={password} onChangeText={setPassword} />
         </View>
         <Pressable style={styles.button}>
           <Text

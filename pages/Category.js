@@ -1,11 +1,12 @@
 import { Text, View, TextInput, ScrollView, Image, StyleSheet } from "react-native";
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-export default class Category extends Component {
-  render() {
+const Category = () => {
+  const [search, setSearch] = useState('');
+  
     return (
       <View style={styles.container}>
-        <TextInput style={styles.input} placeholder="Search" placeholderTextColor={"#fff"} />
+        <TextInput style={styles.input} placeholder="Search" placeholderTextColor={"#fff"} value={search} onChangeText={setSearch} />
         <View style={styles.plantTab}>
           <ScrollView horizontal={true}>
             <Text style={styles.plantTabItemText}>Coleus</Text>
@@ -49,7 +50,6 @@ export default class Category extends Component {
         </ScrollView>
       </View>
     );
-  }
 }
 
 const styles = StyleSheet.create({
@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
   insectList: {
     display: "flex",
     flexDirection: "row",
+    justifyContent: 'center',
     flexWrap:"wrap",
     gap: 20,
     paddingBottom: 70,
@@ -98,3 +99,5 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 10
   },
 })
+
+export default Category;

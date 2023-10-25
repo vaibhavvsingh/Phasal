@@ -1,31 +1,29 @@
 import { Text, View, Image, Pressable, StyleSheet } from "react-native";
-import React, { Component } from "react";
+import React from "react";
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 
-export default class Profile extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={[styles.text, styles.title]}>Profile</Text>
-        <View style={[styles.content]}>
-          <View style={styles.imageContainer}>
-            <Image style={styles.image} />
-            <Pressable style={styles.editButton}>
-              <MaterialCommunityIcons name="pencil-box" size={40} color="#578335" />
-            </Pressable>
-          </View>
-          <Text style={[styles.text, {alignSelf: 'center', marginBottom: 0}]}>Name</Text>
-          <Text style={[styles.text, {alignSelf: 'center', marginTop: 0}]}>Some description</Text>
-          <Text style={styles.text}>Account</Text>
-          <Text style={styles.text}>Notification</Text>
-          <Text style={styles.text}>Help</Text>
-          <Pressable >
-            <Text style={[styles.text, styles.logoutButton]}>LOGOUT</Text>
+export default function Profile () {
+  return (
+    <View style={styles.container}>
+      <Text style={[styles.text, styles.title]}>Profile</Text>
+      <View style={[styles.content]}>
+        <View style={styles.imageContainer}>
+          <Image style={styles.image} />
+          <Pressable style={styles.editButton}>
+            <MaterialCommunityIcons name="pencil-box" size={40} color="#578335" />
           </Pressable>
         </View>
+        <Text style={[styles.text, {alignSelf: 'center', marginBottom: 0}]}>Name</Text>
+        <Text style={[styles.text, {alignSelf: 'center', marginTop: 0}]}>Some description</Text>
+        <Text style={styles.text}>Account</Text>
+        <Text style={styles.text}>Notification</Text>
+        <Text style={styles.text}>Help</Text>
+        <Pressable >
+          <Text style={[styles.text, styles.logoutButton]}>LOGOUT</Text>
+        </Pressable>
       </View>
-    );
-  }
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -68,7 +66,7 @@ const styles = StyleSheet.create({
   },
   editButton: {
     position: 'absolute',
-    right: -25
+    right: -40
   },
   logoutButton: {
     marginTop: 30, 

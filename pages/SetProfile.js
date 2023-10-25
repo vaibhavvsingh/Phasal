@@ -1,35 +1,36 @@
-import { Text, View, StyleSheet, TextInput, Pressable, Image } from 'react-native'
+import { Text, View, StyleSheet, TextInput, Pressable, Image, KeyboardAvoidingView, Platform } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-export default class SetProfile extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Image style={styles.bgImage} source={require('../assets/set-profile.png')} />
-        <MaterialCommunityIcons name="pencil-box" size={40} color="#578335" />
-        <Text style={styles.title}>Let's get you setup.</Text>
-        <View style={{flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20}}>
-          <View>
-            <Text style={styles.text}>PROFILE IMAGE</Text>
-            <Image style={styles.image} />
-          </View>
-          <Text style={[styles.text, {paddingLeft: 20}]}>Browse Files</Text>
+export default function SetProfile () {
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  // const [image, setImage] = useState('');
+  return (
+    <View style={styles.container}>
+      <Image style={styles.bgImage} source={require('../assets/set-profile.png')} />
+      <MaterialCommunityIcons name="pencil-box" size={40} color="#578335" />
+      <Text style={styles.title}>Let's get you setup.</Text>
+      <View style={{flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20}}>
+        <View>
+          <Text style={styles.text}>PROFILE IMAGE</Text>
+          <Image style={styles.image} />
         </View>
-        <View style={styles.inputContainer}>
-          <View>
-            <Text style={styles.text}>FIRST NAME</Text>
-            <TextInput style={styles.input} placeholder='First Name' placeholderTextColor={"#888888"}/>
-          </View>
-          <View>
-            <Text style={styles.text}>LAST NAME</Text>
-            <TextInput style={styles.input} placeholder='Last Name' placeholderTextColor={"#888888"}/>
-          </View>
-        </View>
-        <Pressable style={styles.button}><Text style={[styles.text, {fontSize: 16}]}>Complete Setup</Text></Pressable>
+        <Text style={[styles.text, {paddingLeft: 20}]}>Browse Files</Text>
       </View>
-    )
-  }
+      <KeyboardAvoidingView behavior='padding' keyboardVerticalOffset={Platform.OS == 'ios' ? 100 : 0} style={styles.inputContainer}>
+        <View>
+          <Text style={styles.text}>FIRST NAME</Text>
+          <TextInput style={styles.input} placeholder='First Name' placeholderTextColor={"#888888"} value={firstName} onChangeText={setFirstName} />
+        </View>
+        <View>
+          <Text style={styles.text}>LAST NAME</Text>
+          <TextInput style={styles.input} placeholder='Last Name' placeholderTextColor={"#888888"} value={lastName} onChangeText={setLastName}/>
+        </View>
+      </KeyboardAvoidingView>
+      <Pressable style={styles.button}><Text style={[styles.text, {fontSize: 16}]}>Complete Setup</Text></Pressable>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -59,7 +60,8 @@ const styles = StyleSheet.create({
   inputContainer: {
     display: 'flex',
     flexDirection: 'row',
-    gap: 10
+    gap: 10,
+    justifyContent: 'center'
   },
   button: {
     backgroundColor: '#578335',

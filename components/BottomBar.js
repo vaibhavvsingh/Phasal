@@ -1,39 +1,25 @@
-import { Text, View, StyleSheet } from "react-native";
-import React, { Component } from "react";
+import { View, StyleSheet, Pressable } from "react-native";
+import React from "react";
 import { Feather, Ionicons, MaterialIcons } from "@expo/vector-icons";
 
-export default class BottomBar extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.item}>
-          <Feather name="home" size={30} color="white" />
-          <Feather name="grid" size={24} color="white" />
-        </View>
-        <View style={{ position: "relative" }}>
-          <View
-            style={[
-              styles.item,
-              {
-                position: "absolute",
-                bottom: 0,
-                left: -25,
-                backgroundColor: "#75e00a",
-                padding: 15,
-                borderRadius: 40,
-              },
-            ]}
-          >
-            <MaterialIcons name="add-photo-alternate" size={30} color="black" />
-          </View>
-        </View>
-        <View style={styles.item}>
-          <Ionicons name="mail" size={30} color="white" />
-          <Feather name="user" size={30} color="white" />
-        </View>
+export default function BottomBar({navigation}) {
+  return (
+    <View style={styles.container}>
+      <View style={styles.item}>
+        <Pressable onPress={()=>{navigation.navigate('Home')}}><Feather name="home" size={30} color="white" /></Pressable>
+        <Pressable onPress={()=>{navigation.navigate('Category')}}><Feather name="grid" size={24} color="white" /></Pressable>
       </View>
-    );
-  }
+      <View style={{ position: "relative" }}>
+        <Pressable onPress={()=>{navigation.navigate('Scanner')}} style={[styles.item, styles.scannerBtn]}>
+          <MaterialIcons name="add-photo-alternate" size={30} color="black" />
+        </Pressable>
+      </View>
+      <View style={styles.item}>
+        <Pressable onPress={()=>{navigation.navigate('Contact')}}><Ionicons name="mail" size={30} color="white" /></Pressable>
+        <Pressable onPress={()=>{navigation.navigate('Profile')}}><Feather name="user" size={30} color="white" /></Pressable>
+      </View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -53,5 +39,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 50,
+  },
+  scannerBtn: {
+    position: "absolute",
+    bottom: 0,
+    left: -25,
+    backgroundColor: "#75e00a",
+    padding: 15,
+    borderRadius: 40,
   },
 });
