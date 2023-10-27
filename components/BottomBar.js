@@ -6,8 +6,8 @@ export default function BottomBar({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.item}>
-        <Pressable onPress={()=>{navigation.navigate('Home')}}><Feather name="home" size={30} color="white" /></Pressable>
-        <Pressable onPress={()=>{navigation.navigate('Category')}}><Feather name="grid" size={24} color="white" /></Pressable>
+        <Pressable onPress={()=>{navigation.navigate('HomeRoutes')}}><Feather name="home" size={30} color="white" /></Pressable>
+        <Pressable onPress={()=>{navigation.navigate('CategoryRoutes')}}><Feather name="grid" size={24} color="white" /></Pressable>
       </View>
       <View style={{ position: "relative" }}>
         <Pressable onPress={()=>{navigation.navigate('Scanner')}} style={[styles.item, styles.scannerBtn]}>
@@ -16,7 +16,7 @@ export default function BottomBar({navigation}) {
       </View>
       <View style={styles.item}>
         <Pressable onPress={()=>{navigation.navigate('Contact')}}><Ionicons name="mail" size={30} color="white" /></Pressable>
-        <Pressable onPress={()=>{navigation.navigate('Profile')}}><Feather name="user" size={30} color="white" /></Pressable>
+        <Pressable onPress={()=>{navigation.navigate('ProfileRoutes')}}><Feather name="user" size={30} color="white" /></Pressable>
       </View>
     </View>
   );

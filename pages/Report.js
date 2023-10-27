@@ -1,22 +1,20 @@
 import { Text, View, Image, StyleSheet } from "react-native";
-import React, { Component } from "react";
+import React from "react";
 
-export default class Report extends Component {
-  render() {
-    return (<View style={styles.wrapperContainer}>
-      <View style={styles.imageContainer}>
-        <Image style={styles.image} source={require('../assets/mantis.png')} />
-      </View>
-        <Text style={[styles.text,styles.title]}>Details</Text>
-        <Text style={[styles.text, {textAlign: 'center',margin:10,fontSize: 18}]} >Mantis</Text>
-      <View style={styles.container}>
-        <Text style={styles.text}>Report</Text>
-        <Text style={styles.text}>Example Report</Text>
-        <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
-      </View>
-      </View>
-    );
-  }
+export default function Report () {
+  return (<View style={styles.wrapperContainer}>
+    <View style={styles.imageContainer}>
+      <Image style={styles.image} source={require('../assets/mantis.png')} />
+    </View>
+      <Text style={[styles.text,styles.title]}>Details</Text>
+      <Text style={[styles.text, {textAlign: 'center',margin:10,fontSize: 18}]} >Mantis</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>Report</Text>
+      <Text style={styles.text}>Example Report</Text>
+      <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
+    </View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

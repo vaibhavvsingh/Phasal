@@ -1,7 +1,7 @@
-import { Text, View, TextInput, ScrollView, Image, StyleSheet } from "react-native";
+import { Text, View, TextInput, ScrollView, Image, StyleSheet, Pressable } from "react-native";
 import React, { useState } from "react";
 
-const Category = () => {
+const Category = ({navigation}) => {
   const [search, setSearch] = useState('');
   
     return (
@@ -15,38 +15,12 @@ const Category = () => {
           </ScrollView>
         </View>
         <ScrollView contentContainerStyle={styles.insectList}>
-          <View>
-            <Image source={require("../assets/mantis.png")} />
-            <Text style={styles.imageText}>Mantis</Text>
-          </View>
-          <View>
-            <Image source={require("../assets/mantis.png")} />
-            <Text style={styles.imageText}>Stink Bug</Text>
-          </View>
-          <View>
-            <Image source={require("../assets/mantis.png")} />
-            <Text style={styles.imageText}>Ladybugs</Text>
-          </View>
-          <View>
-            <Image source={require("../assets/mantis.png")} />
-            <Text style={styles.imageText}>Flowerflies</Text>
-          </View>
-          <View>
-            <Image source={require("../assets/mantis.png")} />
-            <Text style={styles.imageText}>Flowerflies</Text>
-          </View>
-          <View>
-            <Image source={require("../assets/mantis.png")} />
-            <Text style={styles.imageText}>Flowerflies</Text>
-          </View>
-          <View>
-            <Image source={require("../assets/mantis.png")} />
-            <Text style={styles.imageText}>Flowerflies</Text>
-          </View>
-          <View>
-            <Image source={require("../assets/mantis.png")} />
-            <Text style={styles.imageText}>Flowerflies</Text>
-          </View>
+          {[1,1,1,1,1,1,1,1,1].map((item,index)=>(
+            <Pressable key={index} onPress={()=>{navigation.navigate('Report')}}>
+              <Image source={require("../assets/mantis.png")} />
+              <Text style={styles.imageText}>Mantis</Text>
+            </Pressable>
+          ))}
         </ScrollView>
       </View>
     );

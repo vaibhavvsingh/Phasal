@@ -2,14 +2,14 @@ import { Text, View, Image, Pressable, StyleSheet } from "react-native";
 import React from "react";
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 
-export default function Profile () {
+export default function Profile ({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={[styles.text, styles.title]}>Profile</Text>
       <View style={[styles.content]}>
         <View style={styles.imageContainer}>
           <Image style={styles.image} />
-          <Pressable style={styles.editButton}>
+          <Pressable style={styles.editButton} onPress={()=>{navigation.navigate('SetProfile')}}>
             <MaterialCommunityIcons name="pencil-box" size={40} color="#578335" />
           </Pressable>
         </View>

@@ -1,26 +1,27 @@
 import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
 import React from "react";
+import { Pressable } from "react-native";
 
-export default function Home () {
+export default function Home ({navigation}) {
   
   return (
       <View style={styles.container}>
         <Text style={styles.title}>Home Page</Text>
         <ScrollView style={{ gap: 10 }}>
-          <View style={styles.card}>
+          <Pressable style={styles.card} onPress={()=>{navigation.navigate('Scanner')}}>
             <View style={styles.thumbnail}>
               <Text style={styles.text}>Scanner</Text>
               <Image source={require("../assets/mantis.png")} />
             </View>
             <Text style={[styles.text, { padding: 15 }]}>Details</Text>
-          </View>
-          <View style={styles.card}>
+          </Pressable>
+          <Pressable style={styles.card} onPress={()=>{navigation.navigate('Report')}}>
             <View style={styles.thumbnail}>
               <Text style={styles.text}>Report</Text>
               <Image source={require("../assets/mantis.png")} />
             </View>
             <Text style={[styles.text, { padding: 15 }]}>Details</Text>
-          </View>
+          </Pressable>
         </ScrollView>
       </View>
   );
